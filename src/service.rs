@@ -169,14 +169,14 @@ impl<S: LanguageServer> LspServiceBuilder<S> {
     ///
     /// ```rust
     /// use serde_json::{json, Value};
-    /// use tower_lsp::jsonrpc::Result;
-    /// use tower_lsp::lsp_types::*;
-    /// use tower_lsp::{LanguageServer, LspService};
+    /// use tower_lsp_f::jsonrpc::Result;
+    /// use tower_lsp_f::lsp_types::*;
+    /// use tower_lsp_f::{LanguageServer, LspService};
     ///
     /// struct Mock;
     ///
     /// // Implementation of `LanguageServer` omitted...
-    /// # #[tower_lsp::async_trait]
+    /// # #[tower_lsp_f::async_trait]
     /// # impl LanguageServer for Mock {
     /// #     async fn initialize(&self, _: InitializeParams) -> Result<InitializeResult> {
     /// #         Ok(InitializeResult::default())

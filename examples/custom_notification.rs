@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
-use tower_lsp::jsonrpc::{Error, Result};
-use tower_lsp::lsp_types::notification::Notification;
-use tower_lsp::lsp_types::*;
-use tower_lsp::{Client, LanguageServer, LspService, Server};
+use tower_lsp_f::jsonrpc::{Error, Result};
+use tower_lsp_f::lsp_types::notification::Notification;
+use tower_lsp_f::lsp_types::*;
+use tower_lsp_f::{Client, LanguageServer, LspService, Server};
 
 #[derive(Debug, Deserialize, Serialize)]
 struct CustomNotificationParams {
@@ -32,7 +32,7 @@ struct Backend {
     client: Client,
 }
 
-#[tower_lsp::async_trait]
+#[tower_lsp_f::async_trait]
 impl LanguageServer for Backend {
     async fn initialize(&self, _: InitializeParams) -> Result<InitializeResult> {
         Ok(InitializeResult {

@@ -798,7 +798,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "121c2a6cda46980bb0fcd1647ffaf6cd3fc79a013de288782836f6df9c48780e"
 
 [[package]]
-name = "tower-lsp"
+name = "tower-lsp-f"
 version = "0.20.0"
 dependencies = [
  "async-codec-lite",
@@ -816,14 +816,14 @@ dependencies = [
  "tokio",
  "tokio-util",
  "tower",
- "tower-lsp-macros",
+ "tower-lsp-macros-f",
  "tracing",
  "tracing-subscriber",
  "ws_stream_tungstenite",
 ]
 
 [[package]]
-name = "tower-lsp-macros"
+name = "tower-lsp-macros-f"
 version = "0.9.0"
 dependencies = [
  "proc-macro2",

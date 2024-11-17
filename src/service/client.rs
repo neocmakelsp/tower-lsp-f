@@ -466,7 +466,7 @@ impl Client {
     /// # Examples
     ///
     /// ```no_run
-    /// # use tower_lsp::{lsp_types::*, Client};
+    /// # use tower_lsp_f::{lsp_types::*, Client};
     /// #
     /// # struct Mock {
     /// #     client: Client,
