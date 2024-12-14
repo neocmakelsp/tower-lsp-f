@@ -6,12 +6,12 @@ A for for tower-lsp. Just for neocmakelsp.
 [![Crates.io][crates-badge]][crates-url]
 [![Documentation][docs-badge]][docs-url]
 
-[ci-badge]: https://github.com/neocmakelsp/tower-lsp_f/actions/workflows/ci.yml/badge.svg?branch=master
-[ci-badge-url]: https://github.com/neocmakelsp/tower-lsp_f/actions
-[crates-badge]: https://img.shields.io/crates/v/tower-lsp_f.svg
-[crates-url]: https://crates.io/crates/tower-lsp_f
-[docs-badge]: https://docs.rs/tower-lsp_f/badge.svg
-[docs-url]: https://docs.rs/tower-lsp_f
+[ci-badge]: https://github.com/neocmakelsp/tower-lsp-f/actions/workflows/ci.yml/badge.svg?branch=master
+[ci-badge-url]: https://github.com/neocmakelsp/tower-lsp-f/actions
+[crates-badge]: https://img.shields.io/crates/v/tower-lsp-f.svg
+[crates-url]: https://crates.io/crates/tower-lsp-f
+[docs-badge]: https://docs.rs/tower-lsp-f/badge.svg
+[docs-url]: https://docs.rs/tower-lsp-f
 
 [Language Server Protocol] implementation for Rust based on [Tower].
 
@@ -85,7 +85,7 @@ Using `tower-lsp` with other runtimes requires disabling `default-features` and
 enabling the `runtime-agnostic` feature:
 
 ```toml
-[dependencies.tower-lsp_f]
+[dependencies.tower-lsp-f]
 version = "*"
 default-features = false
 features = ["runtime-agnostic"]
