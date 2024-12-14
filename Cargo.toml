@@ -1,12 +1,27 @@
-[package]
-name = "tower-lsp-f"
-version = "0.20.0"
-authors = ["Eyal Kalderon <ebkalderon@gmail.com>"]
+[workspace.package]
+authors = [
+	"Eyal Kalderon <ebkalderon@gmail.com>",
+	"Decodertalkers <aakari@tutanota.com>",
+]
 edition = "2021"
 description = "Language Server Protocol implementation based on Tower"
 license = "MIT OR Apache-2.0"
-homepage = "https://github.com/ebkalderon/tower-lsp"
-repository = "https://github.com/ebkalderon/tower-lsp"
+homepage = "https://github.com/neocmakelsp/tower-lsp-f"
+repository = "https://github.com/neocmakelsp/tower-lsp-f"
+readme = "README.md"
+categories = ["asynchronous"]
+keywords = ["language-server", "lsp", "tower"]
+exclude = ["FEATURES.md"]
+
+[package]
+name = "tower-lsp-f"
+version = "0.20.0"
+authors.workspace = true
+edition.workspace = true
+description = "Language Server Protocol implementation based on Tower"
+license.workspace = true
+homepage.workspace = true
+repository.workspace = true
 documentation = "https://docs.rs/tower-lsp/"
 readme = "README.md"
 categories = ["asynchronous"]
@@ -27,7 +42,10 @@ async-trait = "0.1"
 auto_impl = "1"
 bytes = "1"
 dashmap = "6"
-futures = { version = "0.3", default-features = false, features = ["std", "async-await"] }
+futures = { version = "0.3", default-features = false, features = [
+	"std",
+	"async-await",
+] }
 httparse = "1"
 lsp-types = "0.97"
 memchr = "2"
@@ -41,7 +59,12 @@ tracing = "0.1"
 [dev-dependencies]
 async-tungstenite = { version = "0.28", features = ["tokio-runtime"] }
 tokio-util = { version = "0.7", features = ["compat"] }
-tokio = { version = "1", features = ["io-util", "io-std", "macros", "rt-multi-thread"] }
+tokio = { version = "1", features = [
+	"io-util",
+	"io-std",
+	"macros",
+	"rt-multi-thread",
+] }
 tracing-subscriber = "0.3"
 ws_stream_tungstenite = { version = "0.14", features = ["tokio_io"] }
 

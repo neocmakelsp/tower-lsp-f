@@ -1,15 +1,17 @@
-# tower-lsp
+# tower-lsp-f
+
+A for for tower-lsp. Just for neocmakelsp.
 
 [![CI][ci-badge]][ci-badge-url]
 [![Crates.io][crates-badge]][crates-url]
 [![Documentation][docs-badge]][docs-url]
 
-[ci-badge]: https://github.com/tower-lsp/tower-lsp/actions/workflows/ci.yml/badge.svg?branch=master
-[ci-badge-url]: https://github.com/tower-lsp/tower-lsp/actions
-[crates-badge]: https://img.shields.io/crates/v/tower-lsp.svg
-[crates-url]: https://crates.io/crates/tower-lsp
-[docs-badge]: https://docs.rs/tower-lsp/badge.svg
-[docs-url]: https://docs.rs/tower-lsp
+[ci-badge]: https://github.com/neocmakelsp/tower-lsp_f/actions/workflows/ci.yml/badge.svg?branch=master
+[ci-badge-url]: https://github.com/neocmakelsp/tower-lsp_f/actions
+[crates-badge]: https://img.shields.io/crates/v/tower-lsp_f.svg
+[crates-url]: https://crates.io/crates/tower-lsp_f
+[docs-badge]: https://docs.rs/tower-lsp_f/badge.svg
+[docs-url]: https://docs.rs/tower-lsp_f
 
 [Language Server Protocol] implementation for Rust based on [Tower].
 
@@ -39,16 +41,16 @@ consists of three parts:
 ## Example
 
 ```rust
-use tower_lsp::jsonrpc::Result;
-use tower_lsp::lsp_types::*;
-use tower_lsp::{Client, LanguageServer, LspService, Server};
+use tower_lsp_f::jsonrpc::Result;
+use tower_lsp_f::lsp_types::*;
+use tower_lsp_f::{Client, LanguageServer, LspService, Server};
 
 #[derive(Debug)]
 struct Backend {
     client: Client,
 }
 
-#[tower_lsp::async_trait]
+#[tower_lsp_f::async_trait]
 impl LanguageServer for Backend {
     async fn initialize(&self, _: InitializeParams) -> Result<InitializeResult> {
         Ok(InitializeResult::default())
@@ -83,7 +85,7 @@ Using `tower-lsp` with other runtimes requires disabling `default-features` and
 enabling the `runtime-agnostic` feature:
 
 ```toml
-[dependencies.tower-lsp]
+[dependencies.tower-lsp_f]
 version = "*"
 default-features = false
 features = ["runtime-agnostic"]
