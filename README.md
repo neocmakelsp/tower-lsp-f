@@ -1,6 +1,6 @@
 # tower-lsp-f
 
-A for for tower-lsp. Just for neocmakelsp.
+A fork for tower-lsp. Just for neocmakelsp.
 
 [![CI][ci-badge]][ci-badge-url]
 [![Crates.io][crates-badge]][crates-url]
