@@ -3,7 +3,7 @@ authors = [
 	"Eyal Kalderon <ebkalderon@gmail.com>",
 	"Decodertalkers <aakari@tutanota.com>",
 ]
-edition = "2021"
+edition = "2024"
 description = "Language Server Protocol implementation based on Tower"
 license = "MIT OR Apache-2.0"
 homepage = "https://github.com/neocmakelsp/tower-lsp-f"
