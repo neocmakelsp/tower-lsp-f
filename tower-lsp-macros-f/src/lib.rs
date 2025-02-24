@@ -6,7 +6,7 @@ extern crate proc_macro;
 
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{parse_macro_input, FnArg, ItemTrait, LitStr, ReturnType, TraitItem};
+use syn::{FnArg, ItemTrait, LitStr, ReturnType, TraitItem, parse_macro_input};
 
 /// Macro for generating LSP server implementation from [`lsp-types`](https://docs.rs/lsp-types).
 ///
