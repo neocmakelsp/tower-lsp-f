@@ -363,7 +363,7 @@ impl Client {
     /// This notification will only be sent if the server is initialized.
     pub async fn publish_diagnostics(
         &self,
-        uri: Url,
+        uri: Uri,
         diags: Vec<Diagnostic>,
         version: Option<i32>,
     ) {
