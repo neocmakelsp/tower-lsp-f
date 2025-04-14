@@ -14,7 +14,6 @@
 //!     client: Client,
 //! }
 //!
-//! #[tower_lsp_f::async_trait]
 //! impl LanguageServer for Backend {
 //!     async fn initialize(&self, _: InitializeParams) -> Result<InitializeResult> {
 //!         Ok(InitializeResult {
@@ -80,22 +79,17 @@
 /// A re-export of [`lsp-types`](https://docs.rs/lsp-types) for convenience.
 pub use lsp_types;
 
-/// A re-export of [`async-trait`](https://docs.rs/async-trait) for convenience.
-pub use async_trait::async_trait;
-
 pub use self::service::progress::{
     Bounded, Cancellable, NotCancellable, OngoingProgress, Progress, Unbounded,
 };
 pub use self::service::{Client, ClientSocket, ExitedError, LspService, LspServiceBuilder};
 pub use self::transport::{Loopback, Server};
 
-use auto_impl::auto_impl;
 use lsp_types::request::{
     GotoDeclarationParams, GotoDeclarationResponse, GotoImplementationParams,
     GotoImplementationResponse, GotoTypeDefinitionParams, GotoTypeDefinitionResponse,
 };
 use lsp_types::*;
-use tower_lsp_macros_f::rpc;
 use tracing::{error, warn};
 
 use self::jsonrpc::{Error, Result};
@@ -106,16 +100,17 @@ mod codec;
 mod service;
 mod transport;
 
+#[macro_use]
+mod rpc;
+
+rpc! {
 /// Trait implemented by language server backends.
 ///
 /// This interface allows servers adhering to the [Language Server Protocol] to be implemented in a
 /// safe and easily testable way without exposing the low-level implementation details.
 ///
 /// [Language Server Protocol]: https://microsoft.github.io/language-server-protocol/
-#[rpc]
-#[async_trait]
-#[auto_impl(Arc, Box)]
-pub trait LanguageServer: Send + Sync + 'static {
+pub trait LanguageServer: (Send + Sync + 'static) {
     /// The [`initialize`] request is the first request sent from the client to the server.
     ///
     /// [`initialize`]: https://microsoft.github.io/language-server-protocol/specification#initialize
@@ -1332,8 +1327,4 @@ pub trait LanguageServer: Send + Sync + 'static {
     // TODO: Add `work_done_progress_cancel()` here (since 3.15.0) when supported by `tower-lsp`.
     // https://github.com/ebkalderon/tower-lsp/issues/176
 }
-
-fn _assert_object_safe() {
-    fn assert_impl<T: LanguageServer>() {}
-    assert_impl::<Box<dyn LanguageServer>>();
 }

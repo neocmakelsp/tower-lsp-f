@@ -40,17 +40,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "async-trait"
-version = "0.1.83"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "721cae7de5c34fbb2acd27e21e6d2cf7b886dce0c27388d46c4e6c47ea4318dd"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "async-tungstenite"
 version = "0.28.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -991,7 +980,6 @@ name = "tower-lsp-f"
 version = "0.21.0"
 dependencies = [
  "async-codec-lite",
- "async-trait",
  "async-tungstenite",
  "auto_impl",
  "bytes",
@@ -1005,19 +993,9 @@ dependencies = [
  "tokio",
  "tokio-util",
  "tower",
- "tower-lsp-macros-f",
  "tracing",
  "tracing-subscriber",
  "ws_stream_tungstenite",
-]
-
-[[package]]
-name = "tower-lsp-macros-f"
-version = "0.9.0"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
 ]
 
 [[package]]
