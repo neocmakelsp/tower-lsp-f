@@ -388,12 +388,13 @@ checksum = "a7a70ba024b9dc04c27ea2f0c0548feb474ec5c54bba33a7f72f873a39d07b24"
 
 [[package]]
 name = "lsp-types-f"
-version = "0.98.0"
+version = "0.99.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "91528364570f8b971495891a10b5dfdc6882ecb92cb7990de3e4ff16d5b9ecf1"
+checksum = "7d628780e3ad5c81cadfa96c06840d85ba76b5f79b74c4edddd86931ac409cd9"
 dependencies = [
  "bitflags",
  "fluent-uri",
+ "percent-encoding",
  "serde",
  "serde_json",
  "serde_repr",
@@ -470,6 +471,12 @@ dependencies = [
  "smallvec",
  "windows-targets",
 ]
+
+[[package]]
+name = "percent-encoding"
+version = "2.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e3148f5046208a5d56bcfc03053e3ca6334e51da8dfb19b6cdc8b306fae3283e"
 
 [[package]]
 name = "pharos"
@@ -830,7 +837,7 @@ checksum = "121c2a6cda46980bb0fcd1647ffaf6cd3fc79a013de288782836f6df9c48780e"
 
 [[package]]
 name = "tower-lsp-f"
-version = "0.23.0"
+version = "0.24.0"
 dependencies = [
  "async-codec-lite",
  "async-tungstenite",
