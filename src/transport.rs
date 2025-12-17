@@ -113,7 +113,8 @@ where
         let (mut server_tasks_tx, server_tasks_rx) = mpsc::channel(MESSAGE_QUEUE_SIZE);
 
         let mut framed_stdin = FramedRead::new(self.stdin, LanguageServerCodec::default());
-        let framed_stdout = FramedWrite::new(self.stdout, LanguageServerCodec::default());
+        let framed_stdout: FramedWrite<O, LanguageServerCodec<Message>> =
+            FramedWrite::new(self.stdout, LanguageServerCodec::default());
 
         let process_server_tasks = server_tasks_rx
             .buffer_unordered(self.max_concurrency)
