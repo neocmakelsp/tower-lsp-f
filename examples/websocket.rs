@@ -38,26 +38,29 @@ impl LanguageServer for Backend {
         })
     }
 
-    async fn initialized(&self, _: InitializedParams) {
+    async fn initialized(&self, _: InitializedParams) -> Option<()> {
         self.client
             .log_message(MessageType::Info, "initialized!")
             .await;
+        None
     }
 
     async fn shutdown(&self) -> Result<()> {
         Ok(())
     }
 
-    async fn did_change_workspace_folders(&self, _: DidChangeWorkspaceFoldersParams) {
+    async fn did_change_workspace_folders(&self, _: DidChangeWorkspaceFoldersParams) -> Option<()> {
         self.client
             .log_message(MessageType::Info, "workspace folders changed!")
             .await;
+        None
     }
 
-    async fn did_change_configuration(&self, _: DidChangeConfigurationParams) {
+    async fn did_change_configuration(&self, _: DidChangeConfigurationParams) -> Option<()> {
         self.client
             .log_message(MessageType::Info, "configuration changed!")
             .await;
+        None
     }
 
     async fn did_change_watched_files(&self, _: DidChangeWatchedFilesParams) {
@@ -80,28 +83,32 @@ impl LanguageServer for Backend {
         Ok(None)
     }
 
-    async fn did_open(&self, _: DidOpenTextDocumentParams) {
+    async fn did_open(&self, _: DidOpenTextDocumentParams) -> Option<()> {
         self.client
             .log_message(MessageType::Info, "file opened!")
             .await;
+        None
     }
 
-    async fn did_change(&self, _: DidChangeTextDocumentParams) {
+    async fn did_change(&self, _: DidChangeTextDocumentParams) -> Option<()> {
         self.client
             .log_message(MessageType::Info, "file changed!")
             .await;
+        None
     }
 
-    async fn did_save(&self, _: DidSaveTextDocumentParams) {
+    async fn did_save(&self, _: DidSaveTextDocumentParams) -> Option<()> {
         self.client
             .log_message(MessageType::Info, "file saved!")
             .await;
+        None
     }
 
-    async fn did_close(&self, _: DidCloseTextDocumentParams) {
+    async fn did_close(&self, _: DidCloseTextDocumentParams) -> Option<()> {
         self.client
             .log_message(MessageType::Info, "file closed!")
             .await;
+        None
     }
 
     async fn completion(&self, _: CompletionParams) -> Result<Option<CompletionResponse>> {
