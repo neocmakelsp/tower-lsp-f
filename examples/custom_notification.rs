@@ -24,7 +24,7 @@ impl Notification for CustomNotification {
     type Params = CustomNotificationParams;
 
     const MESSAGE_DIRECTION: MessageDirection = MessageDirection::ClientToServer;
-    const METHOD: LspNotificationMethod = LspNotificationMethod::new("custom/notification");
+    const METHOD: LspNotificationMethod<'_> = LspNotificationMethod::new("custom/notification");
 }
 
 #[derive(Debug)]
