@@ -43,7 +43,7 @@ futures = { version = "0.3", default-features = false, features = [
 	"async-await",
 ] }
 httparse = "1"
-lsp-types = { package = "gen-lsp-types", version = "=0.5.0", features = [
+lsp-types = { package = "gen-lsp-types", version = "0.6.0", features = [
 	"url",
 ] }
 memchr = "2"
