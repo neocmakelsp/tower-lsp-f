@@ -4,12 +4,12 @@
 use lsp_types::Message;
 /// extension for [lsp_types::Message]
 pub trait MessageEx {
-    /// Get the content
-    fn content_string(&self) -> &str;
+    /// Get the content with str
+    fn content_str(&self) -> &str;
 }
 
 impl MessageEx for Message {
-    fn content_string(&self) -> &str {
+    fn content_str(&self) -> &str {
         match self {
             Message::String(content) => content.as_str(),
             Message::MarkupContent(content) => &content.value,
