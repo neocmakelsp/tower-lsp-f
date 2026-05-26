@@ -10,3 +10,6 @@ pub use notifications::*;
 
 pub mod text_document_content;
 pub use text_document_content::*;
+
+pub mod diagnostic;
+pub use diagnostic::*;
