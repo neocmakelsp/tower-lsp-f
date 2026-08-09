@@ -27,10 +27,11 @@
 //!         })
 //!     }
 //!
-//!     async fn initialized(&self, _: InitializedParams) {
+//!     async fn initialized(&self, _: InitializedParams) -> Option<()> {
 //!         self.client
 //!             .log_message(MessageType::Info, "server initialized!")
 //!             .await;
+//!         None
 //!     }
 //!
 //!     async fn shutdown(&self) -> Result<()> {
@@ -133,8 +134,9 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     /// The server can use the `initialized` notification, for example, to dynamically register
     /// capabilities with the client.
     #[rpc(name = "initialized")]
-    async fn initialized(&self, params: InitializedParams) {
+    async fn initialized(&self, params: InitializedParams) -> Option<()> {
         let _ = params;
+        None
     }
 
     /// The [`shutdown`] request asks the server to gracefully shut down, but to not exit.
@@ -162,9 +164,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     /// document’s truth using the document's URI. "Open" in this sense means it is managed by the
     /// client. It doesn't necessarily mean that its content is presented in an editor.
     #[rpc(name = "textDocument/didOpen")]
-    async fn did_open(&self, params: DidOpenTextDocumentParams) {
+    async fn did_open(&self, params: DidOpenTextDocumentParams) -> Option<()> {
         let _ = params;
         warn!("got a `textDocument/didOpen` notification, but it is not implemented");
+        None
     }
 
     /// The [`textDocument/didChange`] notification is sent from the client to the server to signal
@@ -175,9 +178,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     /// This notification will contain a distinct version tag and a list of edits made to the
     /// document for the server to interpret.
     #[rpc(name = "textDocument/didChange")]
-    async fn did_change(&self, params: DidChangeTextDocumentParams) {
+    async fn did_change(&self, params: DidChangeTextDocumentParams) -> Option<()> {
         let _ = params;
         warn!("got a `textDocument/didChange` notification, but it is not implemented");
+        None
     }
 
     /// The [`textDocument/willSave`] notification is sent from the client to the server before the
@@ -185,9 +189,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     ///
     /// [`textDocument/willSave`]: https://microsoft.github.io/language-server-protocol/specification#textDocument_willSave
     #[rpc(name = "textDocument/willSave")]
-    async fn will_save(&self, params: WillSaveTextDocumentParams) {
+    async fn will_save(&self, params: WillSaveTextDocumentParams) -> Option<()>{
         let _ = params;
         warn!("got a `textDocument/willSave` notification, but it is not implemented");
+        None
     }
 
     /// The [`textDocument/willSaveWaitUntil`] request is sent from the client to the server before
@@ -215,9 +220,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     ///
     /// [`textDocument/didSave`]: https://microsoft.github.io/language-server-protocol/specification#textDocument_didSave
     #[rpc(name = "textDocument/didSave")]
-    async fn did_save(&self, params: DidSaveTextDocumentParams) {
+    async fn did_save(&self, params: DidSaveTextDocumentParams) -> Option<()> {
         let _ = params;
         warn!("got a `textDocument/didSave` notification, but it is not implemented");
+        None
     }
 
     /// The [`textDocument/didClose`] notification is sent from the client to the server when the
@@ -228,9 +234,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     /// The document's truth now exists where the document's URI points to (e.g. if the document's
     /// URI is a file URI, the truth now exists on disk).
     #[rpc(name = "textDocument/didClose")]
-    async fn did_close(&self, params: DidCloseTextDocumentParams) {
+    async fn did_close(&self, params: DidCloseTextDocumentParams) -> Option<()> {
         let _ = params;
         warn!("got a `textDocument/didClose` notification, but it is not implemented");
+        None
     }
 
     // Notebook Document Synchronization
@@ -1228,9 +1235,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     ///
     /// [`workspace/didChangeConfiguration`]: https://microsoft.github.io/language-server-protocol/specification#workspace_didChangeConfiguration
     #[rpc(name = "workspace/didChangeConfiguration")]
-    async fn did_change_configuration(&self, params: DidChangeConfigurationParams) {
+    async fn did_change_configuration(&self, params: DidChangeConfigurationParams) -> Option<()> {
         let _ = params;
         warn!("got a `workspace/didChangeConfiguration` notification, but it is not implemented");
+        None
     }
 
     /// The [`workspace/didChangeWorkspaceFolders`] notification is sent from the client to the
@@ -1247,9 +1255,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     /// This notification is also sent if the server has registered itself to receive this
     /// notification.
     #[rpc(name = "workspace/didChangeWorkspaceFolders")]
-    async fn did_change_workspace_folders(&self, params: DidChangeWorkspaceFoldersParams) {
+    async fn did_change_workspace_folders(&self, params: DidChangeWorkspaceFoldersParams) -> Option<()> {
         let _ = params;
         warn!("got a `workspace/didChangeWorkspaceFolders` notification, but it is not implemented");
+        None
     }
 
     /// The [`workspace/willCreateFiles`] request is sent from the client to the server before
@@ -1277,9 +1286,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     ///
     /// [`workspace/didCreateFiles`]: https://microsoft.github.io/language-server-protocol/specification#workspace_didCreateFiles
     #[rpc(name = "workspace/didCreateFiles")]
-    async fn did_create_files(&self, params: CreateFilesParams) {
+    async fn did_create_files(&self, params: CreateFilesParams) -> Option<()> {
         let _ = params;
         warn!("got a `workspace/didCreateFiles` notification, but it is not implemented");
+        None
     }
 
     /// The [`workspace/willRenameFiles`] request is sent from the client to the server before
@@ -1307,9 +1317,10 @@ pub trait LanguageServer: (Send + Sync + 'static) {
     ///
     /// [`workspace/didRenameFiles`]: https://microsoft.github.io/language-server-protocol/specification#workspace_didRenameFiles
     #[rpc(name = "workspace/didRenameFiles")]
-    async fn did_rename_files(&self, params: RenameFilesParams) {
+    async fn did_rename_files(&self, params: RenameFilesParams) -> Option<()> {
         let _ = params;
         warn!("got a `workspace/didRenameFiles` notification, but it is not implemented");
+        None
     }
 
     /// The [`workspace/willDeleteFiles`] request is sent from the client to the server before
