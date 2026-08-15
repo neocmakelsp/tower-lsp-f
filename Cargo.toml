@@ -43,7 +43,7 @@ futures = { version = "0.3", default-features = false, features = [
 	"async-await",
 ] }
 httparse = "1"
-lsp-types = { package = "gen-lsp-types", version = "0.9.0", features = [
+lsp-types = { package = "gen-lsp-types", version = "0.11.0", features = [
 	"url",
 ] }
 memchr = "2"
@@ -55,7 +55,7 @@ tower = { version = "0.5", default-features = false, features = ["util"] }
 tracing = "0.1"
 
 [dev-dependencies]
-async-tungstenite = { version = "0.34", features = ["tokio-runtime"] }
+async-tungstenite = { version = "0.35", features = ["tokio-runtime"] }
 tokio-util = { version = "0.7", features = ["compat"] }
 tokio = { version = "1", features = [
 	"io-util",
